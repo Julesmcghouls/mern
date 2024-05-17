@@ -8,3 +8,18 @@ const client = new MongoClient(uri, {
     deprecatedError: true,
     },
 });
+
+try {
+    //Connect the client to the server
+    await client.connect();
+    //Send a ping to confirm connection 
+    await client.db("admin").command({ ping: 1 });
+    console.log("Connected successfully to server");
+} catch (err) {
+    console.error(err);
+}
+
+let db = client.db("employee");
+
+export default db;
+
