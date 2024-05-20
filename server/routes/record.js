@@ -1,7 +1,7 @@
 import express from "express";
 
 //This helps us connect to DB
-import db from "./db/connection.js";
+import db from "../db/connection.js";
 
 //This helps us convert id from string to ObjectId 
 import { ObjectId } from "mongodb";
@@ -22,11 +22,8 @@ router.get("/:id", async (req, res) => {
     let query = { _id: ObjectId(req.params.id) }; 
     let results = await collection.findOne(query);
 
-    if (!results) {
-        res.send("Record not found").status(404); 
-    } else {
-        res.send(results).status(200);
-    }
+    if (!results) res.send("Record not found").status(404); 
+    else res.send(results).status(200);
 });
 
 //This section will help us add a record to the database

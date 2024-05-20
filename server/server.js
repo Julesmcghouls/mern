@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import records from "./routes/records.js";
+import records from "../routes/records.js";
 
 // Path: server/routes/records.js
 const PORT = process.env.PORT || 5050;
